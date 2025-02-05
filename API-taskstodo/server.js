@@ -96,13 +96,15 @@ appTodo.listen(3000, () => {
 
 //criar uma const = users[] pra depois substituir no BD
 
-// pra rota get:
+// pra rota post:
 ////app.post('/enderecodarota', async (req, res) => {
-//     const tasklist = await prisma.task.findMany() //task é o nome do modelo.
+//    users.push(req.body) //users é o nome da const risos
 
-//     res.status(200).json(tasklist)
-
+//     res.send('deu bom')
 // });
+
+// escrever app.use(Express.json()) pra indicar ao express que a gente ta usando json
+//mandar infos do usuário no json body/thunder client (apenas pra prototipo)
 
 
 // ACESSO AO BANCO DE DADOS VIA PRISMA.SCHEMA(mongodb)
