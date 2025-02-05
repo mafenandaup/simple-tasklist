@@ -94,6 +94,17 @@ appTodo.listen(3000, () => {
 
 // baixar thunderclient pra testes nos métodos/rotas
 
+//criar uma const = users[] pra depois substituir no BD
+
+// pra rota get:
+////app.post('/enderecodarota', async (req, res) => {
+//     const tasklist = await prisma.task.findMany() //task é o nome do modelo.
+
+//     res.status(200).json(tasklist)
+
+// });
+
+
 // ACESSO AO BANCO DE DADOS VIA PRISMA.SCHEMA(mongodb)
 //user: mafenandaup
 //pword: jSZ9ywvil4njIENY
