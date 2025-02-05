@@ -75,11 +75,11 @@ appTodo.listen(3000, () => {
 
 // appTodo.get('/todolist', (req, res) => {
 
-//     const tasklist =  prisma.task.findMany()
-
-//     res.status(200).json(tasklist)
+//    res.send('ok deu bom')
 
 // });
+
+//
 
 //NO REACT:
 
@@ -90,8 +90,9 @@ appTodo.listen(3000, () => {
 
 // });
 
+// depois inserir  appTodo.listen(3000, () => {});
 
-// depois inserir
+// baixar thunderclient pra testes nos métodos/rotas
 
 // ACESSO AO BANCO DE DADOS VIA PRISMA.SCHEMA(mongodb)
 //user: mafenandaup
