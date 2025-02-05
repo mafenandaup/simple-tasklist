@@ -30,18 +30,8 @@ appTodo.post('/todolist', async (req, res) => {
     res.status(201).json(req.body)
 });
 
-appTodo.put('/todolist/:varID', async (req, res) => {
-    const { id } = req.params;
-    const { title, description, priority, completed } = req.body;
-    try {
-        const task = await prisma.task.update({
-            where: { id },
-            data: { title, description, priority, completed },
-        });
-        res.status(200).json(task);
-    } catch (error) {
-        res.status(500).json({ error: 'Erro ao atualizar tarefa.' });
-    }
+appTodo.put('/todolist/:varID', async (req, res) => { //os dois pontos indicam uma variável
+  
 });
 
 appTodo.delete('/todolist/:varID', async (req, res) => {
@@ -118,8 +108,7 @@ appTodo.listen(3000, () => {
 // import { PrismaClient } from '@prisma/client'
 //const prisma = new PrismaClient()
 
-// atualize a rota de post:
-//
+// atualize as rotas do jeito que estão aqui, só que, obviamente, adaptando pro seu modelo.
 
 //NO REACT:
 
