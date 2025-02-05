@@ -60,6 +60,12 @@ appTodo.listen(3000, () => {
 
 });
 
+
+// ACESSO AO BANCO DE DADOS VIA PRISMA.SCHEMA(mongodb)
+//user: mafenandaup
+//pword: jSZ9ywvil4njIENY
+
+
 // PASSOS PARA CRIAÇÃO DE API
 
 // fazer folder da api e baixar o node
@@ -106,10 +112,7 @@ appTodo.listen(3000, () => {
 // escrever app.use(Express.json()) pra indicar ao express que a gente ta usando json
 //mandar infos do usuário no json body/thunder client (apenas pra prototipo)
 
-
-// ACESSO AO BANCO DE DADOS VIA PRISMA.SCHEMA(mongodb)
-//user: mafenandaup
-//pword: jSZ9ywvil4njIENY
+//fica dando post e get pra testar os métodos
 
 // PASSOS P REACT:
 
