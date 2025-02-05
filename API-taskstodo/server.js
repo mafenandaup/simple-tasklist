@@ -110,6 +110,16 @@ appTodo.listen(3000, () => {
   
 // vai na documentação do prisma (site) e escolhe um modelo pra criar/se inspirar
 // depois de criado, coloque npx prisma db push no terminal
+// npm install @prisma/client
+
+// ai vc pode acessar npx prisma studio
+// importe o prisma client no inicio do projeto:
+
+// import { PrismaClient } from '@prisma/client'
+//const prisma = new PrismaClient()
+
+// atualize a rota de post:
+//
 
 //NO REACT:
 
