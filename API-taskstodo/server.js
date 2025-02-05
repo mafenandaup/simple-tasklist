@@ -46,6 +46,18 @@ appTodo.put('/todolist/:varID', async (req, res) => { //os dois pontos indicam u
     res.status(201).json(req.body)
 });
 
+appTodo.patch('/todolist/:varID', async (req, res) => {
+    await prisma.task.update({
+            where: {
+                id: req.params.varID
+            },
+            data: {
+                ...req.body // Atualiza apenas os campos enviados no corpo da requisição
+            }
+        });
+        res.status(200).json(updatedTask);
+});
+
 appTodo.delete('/todolist/:varID', async (req, res) => {
     await prisma.task.update({ 
         where: {
