@@ -1,0 +1,153 @@
+import './style.css'
+import Trashcan from '../../assets/trashcan.png'
+import Check from '../../assets/check.png'
+import api from '../../services/api'
+import { useState, useEffect, useRef } from 'react';
+
+
+function Tasktab() {
+  const [tasks, setTasks] = useState([]); // Estado inicial para armazenar as tarefas
+  const [priority, setPriority] = useState(1); // Estado para a prioridade da tarefa
+  const inputTitle = useRef()
+  const inputDesc = useRef()
+
+  async function getTasks() {
+      const tasksFromApi = await api.get('/todolist');
+      setTasks(tasksFromApi.data); // Atualiza o estado com as tarefas
+  }
+
+
+  async function createTasks() {
+    //verifica campos preenchidos
+    const title = inputTitle.current.value.trim();
+    const description = inputDesc.current.value.trim();
+
+    if (!title || !description) {
+      window.alert('Por favor, preencha todos os campos antes de criar a tarefa.');
+      return;
+    }
+
+    try {
+      const { data } = await api.post('/todolist', {
+        title,
+        description,
+        priority,
+        completed: false,
+      });
+      setTasks((prevTasks) => [...prevTasks, data]);
+      resetData();
+    } catch (error) {
+      console.error('Erro ao criar tarefa:', error);
+    }
+  }
+
+  function resetData() {
+    inputTitle.current.value = '';
+    inputDesc.current.value = '';
+    setPriority(1);
+    getTasks();
+  }
+
+  // Função para lidar com mudança de prioridade
+  function handlePriorityChange(event) {
+    setPriority(Number(event.target.value)); // Atualiza o estado com o valor selecionado
+  }
+
+  async function completeTask(id) {
+    try {
+       await api.put(`/todolist/${id}`, { completed: true });
+      setTasks((prevTasks) =>
+        prevTasks.map((task) => (task.id === id ? { ...task, completed: true } : task))
+      );
+    } catch (error) {
+      console.error('Erro ao completar tarefa:', error);
+    }
+  }
+
+  async function deleteTask(id) {
+    console.log("Tentando excluir tarefa com ID:", id); // Debug
+    
+    try {
+      await api.delete(`/todolist/${id}`);
+      setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+    } catch (error) {
+      console.error("Erro ao excluir tarefa:", error);
+    }
+  }
+  
+  useEffect(() => {
+    getTasks(); // Chama a função ao carregar a página
+  }, []);
+
+  return (
+    <div className='main-container'>
+      <header>
+        <h1>TaskManager</h1>
+      </header>
+      <main>
+        <section className='task-create'>
+          <h2>Criação de Nova Tarefa</h2>
+          <form>
+            <input
+              type='text'
+              placeholder='Título (EX: Estudos de X...)'
+              className='task-text'
+              ref={inputTitle}
+            />
+            <div className='task-priority'>
+              <p>Prioridade da tarefa</p>
+              <div>
+                {[1, 2, 3].map((level) => (
+                  <label key={level}>
+                    <input
+                      type='radio'
+                      name='priority'
+                      value={level}
+                      onChange={handlePriorityChange}
+                      checked={priority === level}
+                    />
+                    {level}
+                  </label>
+                ))}
+              </div>
+            </div>
+            <div className='task-description'>
+              <p>Descrição da tarefa</p>
+              <textarea
+                placeholder='EX: Fazer coisa X...'
+                className='task-text'
+                ref={inputDesc}
+              ></textarea>
+            </div>
+            <div className='button-area'>
+              <button type='button' onClick={createTasks}>Criar Tarefa</button>
+              <button type='reset' onClick={resetData}>Limpar Formulário</button>
+            </div>
+          </form>
+        </section>
+        <section className='task-listagem'>
+          <h1>Tarefas em Andamento</h1>
+          {tasks.map((task) => (
+            <div key={task.id} className={`task-display ${task.completed ? 'completed' : ''}`}>
+              <h3 style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.title}</h3>
+              <p style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.description}</p>
+              <p className='priority-text'>Prioridade {task.priority}</p>
+              <div className='check-delete'>
+                <button className='trash-icon' onClick={() => deleteTask(task.id)}>
+                  <img src={Trashcan} alt='Excluir' />
+                </button>
+                {!task.completed && (
+                  <button className='complete-icon' onClick={() => completeTask(task.id)}>
+                    <img src={Check} alt='Completar' />
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
+        </section>
+      </main>
+    </div>
+  );
+}
+
+export default Tasktab

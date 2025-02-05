@@ -1,0 +1,21 @@
+
+/* AQUI SÃO OS ESTILOS GLOBAIS PRAS PAGINAS! */
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  background-color: aliceblue;
+  font-family: Montserrat, sans-serif;
+}
+
+
