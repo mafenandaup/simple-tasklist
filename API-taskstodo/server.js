@@ -52,7 +52,7 @@ appTodo.patch('/todolist/:varID', async (req, res) => {
                 id: req.params.varID
             },
             data: {
-                ...req.body // Atualiza apenas os campos enviados no corpo da requisição
+                completed: true  // Atualiza apenas os campos enviados no corpo da requisição
             }
         });
         res.status(200).json(updatedTask);
