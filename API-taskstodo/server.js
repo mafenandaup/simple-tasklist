@@ -86,7 +86,11 @@ appTodo.listen(3000, () => {
 // });
 
 //criar continha no mongo.db, seja com github ou gmail, no caso como tenho cadastro da no mesmo
-//
+// escolha um plano gratis e dé um nome pro seu DB (tag é opcional)
+//crie o usuário e senha do seu banco pra guardar no seu code
+
+//no overwiew, va em network acess e edite para acessar qualquer ip, depois,
+//va em database acess e se coloque como admin
 
 //NO REACT:
 
