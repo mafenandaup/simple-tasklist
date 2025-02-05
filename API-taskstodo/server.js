@@ -92,6 +92,25 @@ appTodo.listen(3000, () => {
 //no overwiew, va em network acess e edite para acessar qualquer ip, depois,
 //va em database acess e se coloque como admin
 
+//INSTALANDO O PRISMA:
+//npm install prisma --save-dev
+// npx prisma init
+
+// NO ENV, COLOCAR O LINK DO DB la no mongo
+
+// no site do mongo vai em database e clica em connect\drivers\node
+// copie o código do mongo e cole seu user, senha e nome do DB no link
+// DATABASE_URL="mongodb+srv://mafenandaup:jSZ9ywvil4njIENY@dbtasks.nb85r.mongodb.net/DBtasks?retryWrites=true&w=majority&appName=DBtasks"
+
+// conecte seu DB, copiando e colando isso no prisma:
+// //datasource db {
+//     provider = "mongodb"
+//     url      = env("DATABASE_URL")
+//   }
+  
+// vai na documentação do prisma (site) e escolhe um modelo pra criar/se inspirar
+// depois de criado, coloque npx prisma db push no terminal
+
 //NO REACT:
 
 //app.tipoderota('/enderecodarota', async (req, res) => {
