@@ -67,8 +67,19 @@ appTodo.listen(3000, () => {
 // criar arquivo server.js
 // npm i express
 // importar as bibliotecas EM ORDEM!! nesse caso, o express vem primeiro
+//no "package.json", embaixo de 'version', escrever "type; "module",
 // criar uma const app = express
 // criando uma rota (GET, POST/CRIAR, PATCH/EDITARUM, PUT/EDITARGERAL DELETE)
+
+// NO PLANO DO BACKEND, ANTES DO SCHEMA:
+
+// appTodo.get('/todolist', (req, res) => {
+
+//     const tasklist =  prisma.task.findMany()
+
+//     res.status(200).json(tasklist)
+
+// });
 
 //NO REACT:
 
@@ -79,6 +90,8 @@ appTodo.listen(3000, () => {
 
 // });
 
+
+// depois inserir
 
 // ACESSO AO BANCO DE DADOS VIA PRISMA.SCHEMA(mongodb)
 //user: mafenandaup
