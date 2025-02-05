@@ -85,6 +85,7 @@ appTodo.listen(3000, () => {
 
 // });
 
+//criar continha no mongo.db, seja com github ou gmail, no caso como tenho cadastro da no mesmo
 //
 
 //NO REACT:
