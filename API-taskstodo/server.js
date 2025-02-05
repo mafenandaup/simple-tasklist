@@ -23,7 +23,7 @@ appTodo.post('/todolist', async (req, res) => {
             title: req.body.title,
             description: req.body.description,
             priority: req.body.priority,
-
+            completed: false,
 
         }
     })
@@ -31,20 +31,29 @@ appTodo.post('/todolist', async (req, res) => {
 });
 
 appTodo.put('/todolist/:varID', async (req, res) => { //os dois pontos indicam uma variável
-  
+   
+    await prisma.task.update({ 
+        where: {
+            id: req.params.id
+        },
+        data: {
+            title: req.body.title,
+            description: req.body.description,
+            priority: req.body.priority,
+
+        }
+    })
+    res.status(201).json(req.body)
 });
 
 appTodo.delete('/todolist/:varID', async (req, res) => {
-    const { id } = req.params;
-    try {
-      await prisma.task.delete({
-        where: { id },
-      });
-      res.status(200).json({ message: 'Tarefa excluída com sucesso.' });
-    } catch (error) {
-      res.status(500).json({ error: 'Erro ao excluir tarefa.' });
-    }
-  });
+    await prisma.task.update({ 
+        where: {
+            id: req.params.id
+        },
+    })
+    res.status(200).json({ message: 'usuário deletado com sucesso'})
+});
 
 appTodo.listen(3000, () => {
 
