@@ -230,6 +230,18 @@ appTodo.listen(3000, () => {
 // LOGO APÓS, INSTALAR AXIOS e criar nova pasta "services",
 // não é boa prática deixar o áxios no meio de tudo. criar arquivo api.js na pasta
 //pra conectar o backend
+
+//dentro do arquivo api.js:
+// import axios from 'axios'
+
+// const api = axios.create({
+
+//     baseURL: 'http://localhost:3000'
+// })
+
+// export default api
+
+
 //usar o useeffect do react para completar a função get, pq senão não aparece nada
 //copiar e colar snippet do react de outros projetos KK
 
