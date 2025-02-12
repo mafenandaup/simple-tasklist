@@ -196,15 +196,6 @@ appTodo.listen(3000, () => {
 //             <div key={tarefinha.id} className="task-display">
 //               <h3>{tarefinha.title}</h3>
 //               <p>{tarefinha.description}</p>
-//               <p className='priority-text'>Prioridade {tarefinha.priority}</p>
-//               <p>Vence em {tarefinha.dueDate.toLocaleDateString()}</p>
-//               <div className='check-delete'>
-//                 <button className='trash-icon'>
-//                   <img src={Trashcan} alt="trash" />
-//                 </button>
-//                 <button className='complete-icon'>
-//                   <img src={Check} alt="complete task" />
-//                 </button>
 //               </div>
 //             </div>
 //           ))}
