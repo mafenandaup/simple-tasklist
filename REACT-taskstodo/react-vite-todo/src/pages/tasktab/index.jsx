@@ -53,27 +53,6 @@ function Tasktab() {
     setPriority(Number(event.target.value)); // Atualiza o estado com o valor selecionado
   }
 
-  async function completeTask(id) {
-    try {
-       await api.put(`/todolist/${id}`, { completed: true });
-      setTasks((prevTasks) =>
-        prevTasks.map((task) => (task.id === id ? { ...task, completed: true } : task))
-      );
-    } catch (error) {
-      console.error('Erro ao completar tarefa:', error);
-    }
-  }
-
-  async function deleteTask(id) {
-    console.log("Tentando excluir tarefa com ID:", id); // Debug
-    
-    try {
-      await api.delete(`/todolist/${id}`);
-      setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
-    } catch (error) {
-      console.error("Erro ao excluir tarefa:", error);
-    }
-  }
   
   useEffect(() => {
     getTasks(); // Chama a função ao carregar a página
@@ -128,16 +107,16 @@ function Tasktab() {
         <section className='task-listagem'>
           <h1>Tarefas em Andamento</h1>
           {tasks.map((task) => (
-            <div key={task.id}>
+            <div key={task.id} className="task-display">
               <h3>{task.title}</h3>
-              <p>{task.description}</p>
+              <p >{task.description}</p>
               <p className='priority-text'>Prioridade {task.priority}</p>
               <div className='check-delete'>
-                <button className='trash-icon' onClick={() => deleteTask(task.id)}>
+                <button className='trash-icon'>
                   <img src={Trashcan} alt='Excluir' />
                 </button>
                 {!task.completed && (
-                  <button className='complete-icon' onClick={() => completeTask(task.id)}>
+                  <button className='complete-icon'>
                     <img src={Check} alt='Completar' />
                   </button>
                 )}
