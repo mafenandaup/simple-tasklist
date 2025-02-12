@@ -128,9 +128,9 @@ function Tasktab() {
         <section className='task-listagem'>
           <h1>Tarefas em Andamento</h1>
           {tasks.map((task) => (
-            <div key={task.id} className={`task-display ${task.completed ? 'completed' : ''}`}>
-              <h3 style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.title}</h3>
-              <p style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>{task.description}</p>
+            <div key={task.id}>
+              <h3>{task.title}</h3>
+              <p>{task.description}</p>
               <p className='priority-text'>Prioridade {task.priority}</p>
               <div className='check-delete'>
                 <button className='trash-icon' onClick={() => deleteTask(task.id)}>

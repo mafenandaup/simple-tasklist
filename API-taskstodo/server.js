@@ -163,9 +163,20 @@ appTodo.listen(3000, () => {
 
 //  npm create vite@latest (biblioteca do react) - react - javascript
 // npm i (p/instalar bibliotecas)
-// dentro do main.jsx só se deve deixar o componente app
+// dentro do main.jsx só se deve deixar o componente (no caso, o app.jsx)
 //deleta tudo dentro do app.jsx e deixa só uma div
+//com antes o return!!
+//antes do return, é aonde ficarão todas as suas funções
+//deixar só o import do css
+//o index.css são os estilos globais pra TODAS as oags
+//creiar folder pages, depois criar folder com o nome da sua pag
+//importar arquivos index.jsx e style.css pra dentro da pasta
+//editar nome da função "app", nos imports e exports
+// de app css vai pra style css
+//dentro da function home criamos o html
 
+//depois de criar o html, voce deve "mapear" o array
+//no caso, o array está dentro da função task.
 //  FAZER FUNÇÃO const com os dados dos usuários, exemplo:
 
 //function Tasktab() {
@@ -192,15 +203,30 @@ appTodo.listen(3000, () => {
 
 // a div que vc for colocar as informações precisa de uma key: EXEMPLO:
 //
-//    {tasks.map((tarefinha) => (
-//             <div key={tarefinha.id} className="task-display">
-//               <h3>{tarefinha.title}</h3>
-//               <p>{tarefinha.description}</p>
-//               </div>
-//             </div>
-//           ))}
+// //       {tasks.map((task) => (
+//      <div key={task.id}>
+// {/* <h3>{task.title}</h3>
+// <p>{task.description}</p>
+// <p className='priority-text'>Prioridade {task.priority}</p>
+// <div className='check-delete'>
+//   <button className='trash-icon' onClick={() => deleteTask(task.id)}>
+//     <img src={Trashcan} alt='Excluir' />
+//   </button>
+//   {!task.completed && (
+//     <button className='complete-icon' onClick={() => completeTask(task.id)}>
+//       <img src={Check} alt='Completar' />
+//     </button>
+//   )}
+// </div>
+// </div> */}
+// ))}
+// </section>
+// </main>
+// </div>
+// );
 //
 // tasks é o nome da const/função que fizemos antes.
+
 // LOGO APÓS, INSTALAR AXIOS e criar nova pasta "services",
 // não é boa prática deixar o áxios no meio de tudo. criar arquivo api.js na pasta
 //pra conectar o backend
