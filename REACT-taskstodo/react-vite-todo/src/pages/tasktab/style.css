@@ -141,6 +141,7 @@ textarea {
   padding: 10px;
   border-radius: 12px;
   border: solid #524f5141 3px;
+  animation: slideUpFadeOut 0.7s ease-in-out ;
   
   & p{
     font-size: 12px;
@@ -150,6 +151,18 @@ textarea {
   font-weight: 600;
   margin-top: 14px;
 }
+}
+
+@keyframes slideUpFadeOut {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .task-display.completed {

@@ -12,8 +12,8 @@ function Tasktab() {
   const inputDesc = useRef()
 
   async function getTasks() {
-      const tasksFromApi = await api.get('/todolist');
-      setTasks(tasksFromApi.data); // Atualiza o estado com as tarefas
+    const tasksFromApi = await api.get('/todolist');
+    setTasks(tasksFromApi.data); // Atualiza o estado com as tarefas
   }
 
 
@@ -53,7 +53,7 @@ function Tasktab() {
     setPriority(Number(event.target.value)); // Atualiza o estado com o valor selecionado
   }
 
-  
+
   useEffect(() => {
     getTasks(); // Chama a função ao carregar a página
   }, []);
@@ -106,8 +106,11 @@ function Tasktab() {
         </section>
         <section className='task-listagem'>
           <h1>Tarefas em Andamento</h1>
-          {tasks.map((task) => (
-            <div key={task.id} className="task-display">
+          {tasks.map((task, index) => (
+            <div
+              key={task.id}
+              className="task-display"
+              style={{ animationDelay: `${index * 0.1}s` }} >
               <h3>{task.title}</h3>
               <p >{task.description}</p>
               <p className='priority-text'>Prioridade {task.priority}</p>

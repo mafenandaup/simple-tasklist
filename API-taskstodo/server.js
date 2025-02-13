@@ -241,6 +241,9 @@ appTodo.listen(3000, () => {
 
 // export default api
 
+//import api from '../../services/api' no index.js
+//depois disso, apagar função getusers
+
 
 //usar o useeffect do react para completar a função get, pq senão não aparece nada
 //copiar e colar snippet do react de outros projetos KK
