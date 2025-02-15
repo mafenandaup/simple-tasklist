@@ -43,9 +43,6 @@ function Tasktab() {
     getTasks();
   }
 
-  async function deleteTask(id) {
-    await api.delete(`/todolist/${id}`)
-  }
 
   // Função para lidar com mudança de prioridade
   function handlePriorityChange(event) {
@@ -114,7 +111,7 @@ function Tasktab() {
               <p >{task.description}</p>
               <p className='priority-text'>Prioridade {task.priority}</p>
               <div className='check-delete'>
-                <button className='trash-icon'onClick={deleteTask(task.id)}>
+                <button className='trash-icon'>
                   <img src={Trashcan} alt='Excluir' />
                 </button>
                 {!task.completed && (
