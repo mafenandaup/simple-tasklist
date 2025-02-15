@@ -266,7 +266,15 @@ appTodo.listen(3000, () => {
 
 // usar reacthook USESTATE:
 
-//
+//const [tasks, setTasks] = useState([]); // Estado inicial para armazenar os dados
+// //: insere o nome da váriavel e depois setvariavel
+// pra alterar o valor de tasks, você precisa executar o settasks
+
+// async function getTasks() {
+//     const tasksFromApi = await api.get('/todolist');
+//     setTasks(tasksFromApi.data); // Atualiza o estado com as tarefas
+//   }
+
 
 //  const [tasks, setTasks] = useState([]); // Estado inicial para armazenar as tarefas
 // usar reacthook (useRef)
