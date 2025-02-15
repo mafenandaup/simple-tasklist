@@ -284,3 +284,12 @@ appTodo.listen(3000, () => {
 // e ai dem cada elemento input correspondente (HTML), você coloca o elemento associado
 //usando 'ref', como por exemplo:
 // <input type='text' placeholder='Título (EX: Estudos de X...)'ref={inputTitle}/>
+
+//pra createtasks:
+//await api.post('/todolist', {
+//     title,
+//     description,
+//     priority,
+//     completed: false,
+//   });
+//  no documento do react eu coloquei uma const pra representar os dados, mas isso é só por causa da função

@@ -26,8 +26,6 @@ function Tasktab() {
       window.alert('Por favor, preencha todos os campos antes de criar a tarefa.');
       return;
     }
-
-    try {
       const { data } = await api.post('/todolist', {
         title,
         description,
@@ -36,9 +34,6 @@ function Tasktab() {
       });
       setTasks((prevTasks) => [...prevTasks, data]);
       resetData();
-    } catch (error) {
-      console.error('Erro ao criar tarefa:', error);
-    }
   }
 
   function resetData() {
