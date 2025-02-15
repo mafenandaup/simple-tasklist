@@ -293,3 +293,5 @@ appTodo.listen(3000, () => {
 //     completed: false,
 //   });
 //  no documento do react eu coloquei uma const pra representar os dados, mas isso é só por causa da função
+// pode ser assim em outros projetos: (isso se você não usar uma const pra armazenar)
+// title: inputTitle.current.value
