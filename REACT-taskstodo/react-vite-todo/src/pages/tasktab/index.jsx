@@ -27,9 +27,9 @@ function Tasktab() {
       return;
     }
       const { data } = await api.post('/todolist', {
-        title,
-        description,
-        priority,
+        title: inputTitle.current.value,
+        description: inputDesc.current.value,
+        priority: priority.current.value,
         completed: false,
       });
       setTasks((prevTasks) => [...prevTasks, data]);
