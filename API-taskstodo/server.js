@@ -243,8 +243,10 @@ appTodo.listen(3000, () => {
 
 //import api from '../../services/api' no index.js
 //depois disso, apagar função getusers
+// mudar a função const users[] para let users[]
 
 
+//importar useffect no index jsx
 //usar o useeffect do react para completar a função get, pq senão não aparece nada
 //copiar e colar snippet do react de outros projetos KK
 
@@ -253,6 +255,18 @@ appTodo.listen(3000, () => {
 //     getTasks()
 //   }, []);
 
+//ERRO CORS (coisas não aparecem na tela)
+
 //inspecionar site e abrir aba "network", depois selecionar "fetch XHR"
 //instalar cors NO BACK (porque o front e back esão em portas diferentes.)
+//npm install cors
+// import cors from 'cors'
+//appTodo.use(cors()) qq pág pode acessar, no caso empresarial deixaria o endereço certinho.
+
+
+// usar reacthook USESTATE:
+
+//
+
+//  const [tasks, setTasks] = useState([]); // Estado inicial para armazenar as tarefas
 // usar reacthook (useRef)
