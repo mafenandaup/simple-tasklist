@@ -275,6 +275,12 @@ appTodo.listen(3000, () => {
 //     setTasks(tasksFromApi.data); // Atualiza o estado com as tarefas
 //   }
 
+// usar reacthook (useRef) para a criação de usuários.
+//pra cada um dos inputs, vc cria um useref
 
-//  const [tasks, setTasks] = useState([]); // Estado inicial para armazenar as tarefas
-// usar reacthook (useRef)
+//  const inputTitle = useRef()
+// const inputDesc = useRef()
+
+// e ai dem cada elemento input correspondente (HTML), você coloca o elemento associado
+//usando 'ref', como por exemplo:
+// <input type='text' placeholder='Título (EX: Estudos de X...)'ref={inputTitle}/>
