@@ -44,8 +44,12 @@ function Tasktab() {
   }
 
   async function deleteTask(id) {
-    await api.delete(`/todolist/${id}`);
-
+    try {
+      await api.delete(`/todolist/${id}`);
+      setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
+    } catch (error) {
+      console.error('Erro ao deletar a tarefa:', error);
+    }
   }
 
   // Função para lidar com mudança de prioridade
@@ -108,7 +112,7 @@ function Tasktab() {
           <h1>Tarefas em Andamento</h1>
           {tasks.map((task, index) => (
             <div
-              key={task.id}
+              key={task._id}
               className="task-display"
               style={{ animationDelay: `${index * 0.1}s` }} >
               <h3>{task.title}</h3>
