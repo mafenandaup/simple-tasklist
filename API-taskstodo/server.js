@@ -34,7 +34,7 @@ appTodo.put('/todolist/:varID', async (req, res) => { //os dois pontos indicam u
    
     await prisma.task.update({ 
         where: {
-            id: req.params.id
+            id: req.params.varID
         },
         data: {
             title: req.body.title,
@@ -61,7 +61,7 @@ appTodo.patch('/todolist/:varID', async (req, res) => {
 appTodo.delete('/todolist/:varID', async (req, res) => {
     await prisma.task.update({ 
         where: {
-            id: req.params.id
+            id: req.params.varID
         },
     })
     res.status(200).json({ message: 'usuário deletado com sucesso'})
