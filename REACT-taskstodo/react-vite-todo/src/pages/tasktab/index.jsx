@@ -112,7 +112,7 @@ function Tasktab() {
           <h1>Tarefas em Andamento</h1>
           {tasks.map((task, index) => (
             <div
-              key={task._id}
+              key={task.id}
               className="task-display"
               style={{ animationDelay: `${index * 0.1}s` }} >
               <h3>{task.title}</h3>
@@ -122,11 +122,9 @@ function Tasktab() {
               <button className='trash-icon' onClick={() => deleteTask(task.id)}>
                   <img src={Trashcan} alt='Excluir' />
                 </button>
-                {!task.completed && (
                   <button className='complete-icon'>
                     <img src={Check} alt='Completar' />
                   </button>
-                )}
               </div>
             </div>
           ))}

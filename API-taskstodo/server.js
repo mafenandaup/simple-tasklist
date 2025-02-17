@@ -59,13 +59,18 @@ appTodo.patch('/todolist/:varID', async (req, res) => {
 });
 
 appTodo.delete('/todolist/:varID', async (req, res) => {
-    await prisma.task.update({ 
-        where: {
-            id: req.params.id
-        },
-    })
-    res.status(200).json({ message: 'usuário deletado com sucesso'})
-});
+
+    try{
+        await prisma.task.delete({
+            where: {
+                id: req.params.varID
+            },
+        });
+        res.status(200).json({ message: 'usuário deletado com sucesso' })
+    }catch(error){
+        res.status(500).json({ message: 'erro ao deletar usuário' })
+    }
+})
 
 appTodo.listen(3000, () => {
 
