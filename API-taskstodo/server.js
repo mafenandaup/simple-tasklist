@@ -47,15 +47,15 @@ appTodo.put('/todolist/:varID', async (req, res) => { //os dois pontos indicam u
 });
 
 appTodo.patch('/todolist/:varID', async (req, res) => {
-    await prisma.task.update({
-            where: {
-                id: req.params.varID
-            },
-            data: {
-                completed: true  // Atualiza apenas os campos enviados no corpo da requisição
-            }
+    try {
+        const updatedTask = await prisma.task.update({
+            where: { id: req.params.varID },
+            data: { completed: req.body.completed },
         });
-        res.status(200).json(updatedTask);
+        res.status(200).json(updatedTask); // Retorna a tarefa atualizada
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao atualizar a tarefa' });
+    }
 });
 
 appTodo.delete('/todolist/:varID', async (req, res) => {

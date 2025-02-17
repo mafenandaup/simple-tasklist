@@ -205,3 +205,12 @@ filter: invert();
   border: solid #9c979ada 3px;
 cursor: pointer
 }
+
+.line-through {
+  text-decoration: line-through;
+  color: gray; /* Opcional: muda a cor para algo mais apagado */
+}
+
+.task-display.completed {
+  background-color: #f0f0f0; /* Opcional: muda o fundo da tarefa completa */
+}

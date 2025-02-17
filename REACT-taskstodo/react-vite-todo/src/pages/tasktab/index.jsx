@@ -26,14 +26,14 @@ function Tasktab() {
       window.alert('Por favor, preencha todos os campos antes de criar a tarefa.');
       return;
     }
-      const { data } = await api.post('/todolist', {
-        title: inputTitle.current.value,
-        description,
-        priority,
-        completed: false,
-      });
-      setTasks((prevTasks) => [...prevTasks, data]);
-      resetData();
+    const { data } = await api.post('/todolist', {
+      title: inputTitle.current.value,
+      description,
+      priority,
+      completed: false,
+    });
+    setTasks((prevTasks) => [...prevTasks, data]);
+    resetData();
   }
 
   function resetData() {
@@ -49,6 +49,24 @@ function Tasktab() {
       setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
     } catch (error) {
       console.error('Erro ao deletar a tarefa:', error);
+    }
+  }
+
+  async function completeTask(id, currentStatus) {
+    try {
+      // Alterna o estado de `completed`
+      const updatedTask = await api.patch(`/todolist/${id}`, {
+        completed: !currentStatus,
+      });
+
+      // Atualiza o estado local das tarefas
+      setTasks((prevTasks) =>
+        prevTasks.map((task) =>
+          task.id === id ? { ...task, completed: updatedTask.data.completed } : task
+        )
+      );
+    } catch (error) {
+      console.error('Erro ao atualizar o status da tarefa:', error);
     }
   }
 
@@ -110,21 +128,27 @@ function Tasktab() {
         </section>
         <section className='task-listagem'>
           <h1>Tarefas em Andamento</h1>
-          {tasks.map((task, index) => (
+          {tasks.map((task) => (
             <div
               key={task.id}
-              className="task-display"
-              style={{ animationDelay: `${index * 0.1}s` }} >
-              <h3>{task.title}</h3>
-              <p >{task.description}</p>
+              className={`task-display ${task.completed ? 'completed' : ''}`}
+            >
+              <h3 className={task.completed ? 'line-through' : ''}>{task.title}</h3>
+              <p className={task.completed ? 'line-through' : ''}>{task.description}</p>
               <p className='priority-text'>Prioridade {task.priority}</p>
               <div className='check-delete'>
-              <button className='trash-icon' onClick={() => deleteTask(task.id)}>
+                <button
+                  className='complete-icon'
+                  onClick={() => completeTask(task.id, task.completed)}
+                >
+                  <img src={Check} alt='Completar' />
+                </button>
+                <button
+                  className='trash-icon'
+                  onClick={() => deleteTask(task.id)}
+                >
                   <img src={Trashcan} alt='Excluir' />
                 </button>
-                  <button className='complete-icon'>
-                    <img src={Check} alt='Completar' />
-                  </button>
               </div>
             </div>
           ))}
