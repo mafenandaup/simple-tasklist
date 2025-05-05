@@ -72,9 +72,8 @@ appTodo.delete('/todolist/:varID', async (req, res) => {
     }
 })
 
-appTodo.listen(3000, () => {
+appTodo.listen(3000, () => {});
 
-});
 
 
 // ACESSO AO BANCO DE DADOS VIA PRISMA.SCHEMA(mongodb)
